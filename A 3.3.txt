@@ -1,0 +1,72 @@
+List the components of hadoop2.X and explain each component in detail.
+The Components of hadoop2.x are:
+          1.YARN
+          2.HDFS
+          3.MapReduce.
+
+1.YARN:
+         -YARN is Yet Another Resource Negotiator. YARN is cluster management technology.
+
+         -It is a key feature in  second version of hadoop.
+	
+         -The idea of YARN is to split up the functionalities of resource management and monitoring into separate daemons.
+       
+         -It is a software rewrite that decouples MapReduce resource management and capabilities of scheduling from 
+          data processing component which enables Hadoop to support more processing approaches and wide array of
+          applications.
+
+         -It combines a central resource manager that reconciles way of applications
+ that uses hadoop system resources
+          with the node manager agents which monitor processing operations of the individual cluster nodes.
+
+  2.HDFS:
+      - Hadoop Distributed File System takes the data breaks them into pieces 
+         and then distributes them to different nodes in a cluster and thus allows the parallel processing.     
+     -The two components of HDFS are:
+           -Namenode
+           -Datanode
+     *Namenode:
+               -A namenode stores the metadata.
+
+               -A namenode acts as the master node.   
+       
+               -It stores the information about the datanodes like  how many blocks of data
+                   are stored in the nodes,locations of nodes,which node holds the data,etc.
+     *Secondary namenode:
+              -Secondary namenodes performs the activity of house-keeping for the name nodes like 
+                periodic merging and it is used for edits.
+     *Datanode:
+              -The data nodes nodes are used to store the actual data
+
+              -The datanode acts as slave nodes.        
+
+              -It stores the data in terms of blocks.The default size of the block is 64MB.
+
+              -The data node acts as heart beat of the name node as it periodically sends signals to the name node
+                   to check whether it is active currently.
+
+    3.Map Reduce: Map reduce is also called as batch processing model or distributed data processing 
+                              because it distributes data across several machines.
+
+        -The two components of map reduce are:
+                -Job tracker.
+                -Task tracker.
+
+        *Job Tracker:
+               -The main role of job tracker is to assign the map reduce task to task tracker.
+
+               -Job tracker also maintains the status of the task tracker.
+
+               -It is also used to re-assign some task to other task trackers
+                    when the previous task trackers fails or when it gets shut down.              
+
+               -It controls the overall execution of map reduce.
+
+        *Task Tracker:
+               -The main role of task tracker is to execute the task assigned to it by the job tracker.
+
+               -It runs individual map-reduce tasks on the data nodes.
+
+               -The task tracker sends the status back to job tracker.
+             
+               -It periodically communicates with the task tracker.
